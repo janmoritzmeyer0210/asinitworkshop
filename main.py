@@ -12,15 +12,6 @@ class Product:
         self.stock = stock
         self.img = img
 
-    def getName(self):
-        return self.name
-
-    def getPrice(self):
-        return self.price
-
-    def getStock(self):
-        return self.stock
-
     def reduceStock(self, reduction=1):
         self.stock -= reduction
 
@@ -65,6 +56,3 @@ if __name__ == '__main__':
             product.reduceStock()
             window.close()
             break
-
-
-
