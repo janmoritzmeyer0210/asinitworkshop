@@ -28,12 +28,9 @@ class Product:
 
 class ProductController:
     products = [
-        Product("Haar Shampoo", 499, 5, description="Dis ist toll weil Baum"),
-        Product("Duschgel", 499, 8),
-        ## Aufgabe 1
-        Product("Rasierer", 499, 3),
-        Product("Zahnbürste", 499, 2),
-        Product("Telefon", 899, 1)
+        Product("Rasierer", 499, 5, description="Dis ist toll weil Baum", img="img/rasierer.png"),
+        Product("Duschgel", 499, 8, img="img/shampoo.png"),
+        Product("iPhone", 104999, 1, img="img/iphone.png")
     ]
 
     def getProduct(self, index):
@@ -51,6 +48,11 @@ class ProductController:
         self.getProduct(index).reduceStock()
 
 sg.theme('Material 2')
+
+## Aufgabe 4
+def createCheckoutWindow(product = Product):
+    layout = [[sg.Text("Produkt: {}".format(product.name))],[sg.Text("Zahlungsarten:")],[sg.Button("Paypal")]]
+    sg.Window(title="Checkout", layout=layout).read()
 
 if __name__ == '__main__':
     productController = ProductController()
@@ -72,6 +74,7 @@ if __name__ == '__main__':
                 quit()
             product = productController.getProductByName(event)
             product.reduceStock()
+            createCheckoutWindow(product)
             window.close()
             break
 
