@@ -3,12 +3,14 @@ class Product:
     price = int  # in cents
     stock = int
     img = str
+    description = str
 
-    def __init__(self, name, price, stock, img = "/Users/appsazubi/PycharmProjects/ottoshop/img/ice.png"):
+    def __init__(self, name, price, stock, img = "/Users/appsazubi/PycharmProjects/ottoshop/img/ice.png", description = ""):
         self.name = name
         self.price = price
         self.stock = stock
         self.img = img
+        self.description = description
 
     def getName(self):
         return self.name
