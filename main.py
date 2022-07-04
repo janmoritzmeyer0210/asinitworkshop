@@ -5,14 +5,12 @@ class Product:
     price = int  # in cents
     stock = int
     img = str
-    description = str
 
-    def __init__(self, name, price, stock, img = "img/ice.png", description = ""):
+    def __init__(self, name, price, stock, img = "img/ice.png"):
         self.name = name
         self.price = price
         self.stock = stock
         self.img = img
-        self.description = description
 
     def getName(self):
         return self.name
@@ -28,7 +26,7 @@ class Product:
 
 class ProductController:
     products = [
-        Product("Rasierer", 499, 5, description="Dis ist toll weil Baum", img="img/rasierer.png"),
+        Product("Rasierer", 499, 5, img="img/rasierer.png"),
         Product("Duschgel", 499, 8, img="img/shampoo.png"),
         Product("iPhone", 104999, 1, img="img/iphone.png")
     ]
@@ -49,21 +47,12 @@ class ProductController:
 
 sg.theme('Material 2')
 
-## Aufgabe 4
-def createCheckoutWindow(product = Product):
-    layout = [[sg.Text("Produkt: {}".format(product.name))],[sg.Text("Zahlungsarten:")],[sg.Button("Paypal")]]
-    sg.Window(title="Checkout", layout=layout).read()
-
 if __name__ == '__main__':
     productController = ProductController()
     while True:
         layout = [[sg.Text("Mein toller Onlineshop"), sg.Image("img/otto.png")]]
         for product in productController.getProducts():
-            ## Aufgabe 2
-            if product.stock < 1:
-                continue
-            ## Aufgabe 3
-            productText = sg.Text("{} noch {} mal verfügbar \r\n{}".format(product.name, product.stock, product.description))
+            productText = sg.Text("{} noch {} mal verfügbar".format(product.name, product.stock))
             productButton = sg.Button("{}€".format(float(product.price) / 100), key=product.name)
             productImage = sg.Image(product.img, size=(100, 100))
             layout.append([productText, productButton, productImage])
@@ -74,7 +63,6 @@ if __name__ == '__main__':
                 quit()
             product = productController.getProductByName(event)
             product.reduceStock()
-            createCheckoutWindow(product)
             window.close()
             break
 
