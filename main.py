@@ -7,7 +7,7 @@ sg.theme('Material 2')
 if __name__ == '__main__':
     productController = ProductController()
     while True:
-        layout = [[sg.Text("Mein toller Onlineshop")]]
+        layout = [[sg.Text("Mein toller Onlineshop"), sg.Image("img/otto.png")]]
         for product in productController.getProducts():
             ## Aufgabe 2
             if product.stock < 1:
