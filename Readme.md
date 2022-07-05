@@ -1,4 +1,10 @@
 # IT Workshop
 
-
-pip3 install pysimplegui
+## Installation
+```
+pip3 install pysimplegui 
+```
+bzw. 
+```
+python -m pip install pysimplegui
+```
