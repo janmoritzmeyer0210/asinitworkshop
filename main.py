@@ -47,7 +47,7 @@ if __name__ == '__main__':
             productButton = sg.Button("{}€".format(float(product.price) / 100), key=product.name)
             productImage = sg.Image(product.img, size=(100, 100))
             layout.append([productText, productButton, productImage])
-        window = sg.Window(title="Toller Shop", layout=layout, margins=(100, 50))
+        window = sg.Window(title="Mein Onlineshop", layout=layout, margins=(100, 50))
         while True:
             event, _ = window.read()
             if event == sg.WIN_CLOSED:
