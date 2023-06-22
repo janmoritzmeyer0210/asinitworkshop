@@ -20,7 +20,7 @@ class ProductController:
         Product("Rasierer", 499, 5, img="img/rasierer.png"),
         Product("Duschgel", 499, 8, img="img/shampoo.png"),
         Product("iPhone", 104999, 1, img="img/iphone.png"),
-        Product("iPhone", 104999, 1, img="img/iphone.png")
+        Product("iPhone12", 104999, 1, img="img/iphone.png")
     ]
 
     def getProduct(self, index):
